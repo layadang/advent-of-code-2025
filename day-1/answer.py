@@ -1,15 +1,15 @@
 """My answer for Day 1"""
 
+
 class DayOneSolver:
-    """Day One solver
-    """
+    """Day One solver"""
+
     def __init__(self):
-        """Initialize solver variables
-        """
+        """Initialize solver variables"""
         self.input = []
         self.current_position = 50
         self.final_answer = 0
-        self.part_one = False
+        self.is_part_one = False
 
     def read_txt_as_list(self, input_file: str = "day-1/input.txt") -> list:
         """Read .txt file as Python list
@@ -34,7 +34,7 @@ class DayOneSolver:
             self.current_position += 1
             if self.current_position > 99:
                 self.current_position = 0
-            if self.current_position <= 0 and not self.part_one:
+            if self.current_position <= 0 and not self.is_part_one:
                 self.final_answer += 1
             num_of_moves -= 1
 
@@ -48,10 +48,10 @@ class DayOneSolver:
             self.current_position -= 1
             if self.current_position < 0:
                 self.current_position = 99
-            if self.current_position <= 0 and not self.part_one:
+            if self.current_position <= 0 and not self.is_part_one:
                 self.final_answer += 1
             num_of_moves -= 1
-        
+
     def process_single_input(self, input_line: str) -> None:
         """Process a single line of instruction
 
@@ -64,16 +64,15 @@ class DayOneSolver:
             self.turn_right(num_of_moves)
             return
         self.turn_left(num_of_moves)
-    
+
     def process_all_inputs(self) -> None:
-        """Wrapper for looping through every line
-        """
+        """Wrapper for looping through every line"""
         self.input = self.read_txt_as_list(input_file="day-1/input.txt")
         for input_line in self.input:
             print(f"Processing line: {input_line}")
             self.process_single_input(input_line)
             print(f"Current position is: {self.current_position}")
-            if self.current_position == 0 and self.part_one:
+            if self.current_position == 0 and self.is_part_one:
                 self.final_answer += 1
             print("----------")
         print(f"Final answer: {my_answer.final_answer}")
