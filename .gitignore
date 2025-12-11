@@ -2,6 +2,10 @@
 question.md
 **/question.md
 
+# IGNORING INPUT.TXT SORRY!!!!!
+input.txt
+**/input.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
